@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karteikarten Lernapp</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  color: white;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+header {
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.card {
+  background: rgba(255,255,255,0.1);
+  padding: 2rem;
+  margin-top: 2rem;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 400px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.5s;
+}
+</style>
+</head>
+<body>
+<header>Karteikarten Lernapp</header>
+<div class="card" id="card">
+  <div id="cardFront"><strong>Frage:</strong> Was ist 2 + 2?</div>
+  <div id="cardBack" style="display:none;"><strong>Antwort:</strong> 4</div>
+</div>
+<script>
+const card = document.getElementById('card');
+const front = document.getElementById('cardFront');
+const back = document.getElementById('cardBack');
+card.addEventListener('click', () => {
+  if (front.style.display !== 'none') {
+    front.style.display = 'none';
+    back.style.display = 'block';
+  } else {
+    front.style.display = 'block';
+    back.style.display = 'none';
+  }
+});
+</script>
+</body>
+</html>
